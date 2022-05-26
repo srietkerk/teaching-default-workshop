@@ -1,13 +1,22 @@
 package composition;
 
 public interface Cat {
-    default String hunt() {
-        return "That was a good meal";
+    default void eat() {
+        this.setFullStatus(true);
     }
 
-    default String scratch() {
-        return "Feels good on my claws";
+    default void needToEat() {
+        if (isHungry()) {
+            eat();
+        }
     }
+
+    default boolean isHungry() {
+        return !getFullStatus();
+    }
+
+    boolean getFullStatus();
+    void setFullStatus(boolean status);
 
      default String makeNoise() {
         return "Roar!";
@@ -17,11 +26,4 @@ public interface Cat {
         return "purrrr";
     }
 
-    default String cleanSelf() {
-        return "I feel clean!";
-    }
-
-    default String cleanOthers() {
-        return "I cleaned my family.";
-    }
 }
