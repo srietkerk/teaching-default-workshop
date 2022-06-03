@@ -3,7 +3,6 @@ package composition;
 import java.util.ArrayList;
 
 public interface Wild {
-    // if we have two method signatures that conflict, you have to implement the method itself in the thing that is implementing it
 
     default String lookForFood() {
         return "Looking for a good meal";
